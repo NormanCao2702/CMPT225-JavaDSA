@@ -28,19 +28,20 @@ For this assignment, there are 40 test files from Test01.java to Test40.java.
 
 In order to run all the test files at once, you should utilize the sh file named **_run_all.sh_**, the instruction is described as follow:
 1. Go to the location where run_all.sh is located, the directory structure format looks like this:
-> Assignment1/
-├── board1.txt
-├── run_all.sh
-├── src/
-│   ├── integeriterators/
-│   │   ├── ArrayIterator.java
-│   │   ├── IntegerIterator.java
-│   │   └── ...
-│   ├── testcases/
-│   │   ├── Test01.java
-│   │   ├── Test02.java
-│   │   └── ...
-│   ├── fifteenpuzzle/
-│   │   └── FifteenPuzzle.java
+`Assignment1/
+   ├── board1.txt 
+   ├── ...
+   ├── run_all.sh
+   ├── src/
+   │   ├── integeriterators/
+   │   │   ├── ArrayIterator.java
+   │   │   ├── IntegerIterator.java
+   │   │   └── ...
+   │   ├── testcases/
+   │   │   ├── Test01.java
+   │   │   ├── Test02.java
+   │   │   └── ...
+   │   ├── fifteenpuzzle/
+   │   │   └── FifteenPuzzle.java` 
 2. Run the script:
 `./run_all.sh`
