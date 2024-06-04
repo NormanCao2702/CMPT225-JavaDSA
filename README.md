@@ -5,8 +5,8 @@ There are **4 assignments** in total, each assignment will associated with a sep
 
 * [x] Assignment 1: Iterators and Fifteen Puzzle
 
-* [] Assignment 2:
+- [ ] Assignment 2:
 
-* [] Assignment 3:
+- [ ] Assignment 3:
 
-* [] Assignment 4:
+- [ ] Assignment 4:
