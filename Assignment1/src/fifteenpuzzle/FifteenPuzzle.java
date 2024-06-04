@@ -57,12 +57,21 @@ public class FifteenPuzzle {
 		}catch (FileNotFoundException e) {
 			throw e;
 		}
-		catch (IOException e){
-			throw new IOException("Error reading file: " + fileName, e);
-		}
 		checkBoard();
 	}
 
+	private ArrayList<Integer> locateTile(int tile){
+		ArrayList<Integer> location = new ArrayList<>();
+		for(int row = 0; row < SIZE; row++){
+			for(int col = 0; col < SIZE; col++){
+				if(this.board[row][col] == tile){
+					location.add(row);
+					location.add(col);
+				}
+			}
+		}
+		return location;
+	}
 	/**
 	 * Get the number of the tile, and moves it to the specified direction
 	 * 
@@ -70,6 +79,40 @@ public class FifteenPuzzle {
 	 */
 	public void makeMove(int tile, int direction) throws IllegalMoveException {
 		// TODO implement me
+		ArrayList<Integer> location = locateTile(tile);
+		int row = location.get(0);
+		int col = location.get(1);
+
+		switch(direction){
+			case UP:
+				if(row > 0 && board[row-1][col] == 0){
+					board[row-1][col] = tile;
+					board[row][col] = 0;
+					break;
+				}
+				else throw new IllegalMoveException(""+tile+ "cannot move UP");
+			case DOWN:
+				if(row < SIZE-1 && board[row+1][col] == 0){
+					board[row+1][col] = tile;
+					board[row][col] = 0;
+					break;
+				}
+				else throw new IllegalMoveException(""+tile+ "cannot move DOWN");
+			case LEFT:
+				if(col > 0 && board[row][col-1] == 0){
+					board[row][col-1] = tile;
+					board[row][col] = 0;
+					break;
+				}
+				else throw new IllegalMoveException(""+tile+ "cannot move LEFT");
+			case RIGHT:
+				if(col < SIZE-1 && board[row][col+1] == 0){
+					board[row][col+1] = tile;
+					board[row][col] = 0;
+					break;
+				}
+				else throw new IllegalMoveException(""+tile+ "cannot move RIGHT");
+		}
 	}
 
 	
@@ -79,7 +122,19 @@ public class FifteenPuzzle {
 	 */
 	public boolean isSolved() {
 		// TODO implement me
-		return false;
+		int counter = 1;
+		for(int row = 0; row < SIZE; row++){
+			for(int col = 0;col < SIZE; col++){
+				if(row == 3 && col == 3){
+					return this.board[row][col] == 0;
+				}
+				else if(this.board[row][col] != counter){
+					return false;
+				}
+				counter++;
+			}
+		}
+		return true;
 	}
 	
 	@Override

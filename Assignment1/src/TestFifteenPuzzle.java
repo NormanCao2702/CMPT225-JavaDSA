@@ -70,7 +70,7 @@ public class TestFifteenPuzzle
 
 	public static void testMoves1() {
 		try {
-			FifteenPuzzle game = new FifteenPuzzle("../../board1.txt");
+			FifteenPuzzle game = new FifteenPuzzle("board1.txt");
 			//  1  8  4  6
 			//  2  3  5 15
 			// 11 12 10  9
@@ -98,7 +98,7 @@ public class TestFifteenPuzzle
 
 	public static void testMoves2() {
 		try {
-			FifteenPuzzle game = new FifteenPuzzle("../../board2.txt");
+			FifteenPuzzle game = new FifteenPuzzle("board2.txt");
 			//  1  2  3  4
 			//  5  6  8 11 
 			//  9 10    12
@@ -119,7 +119,7 @@ public class TestFifteenPuzzle
 
 	public static void testIsSolved1() {
 		try {
-			FifteenPuzzle game = new FifteenPuzzle("../../board1.txt");
+			FifteenPuzzle game = new FifteenPuzzle("board1.txt");
 			if (!game.isSolved())
 				System.out.println("testIsSolved1 OK");
 			else
@@ -133,7 +133,7 @@ public class TestFifteenPuzzle
 
 	public static void testIsSolved2() {
 		try {
-			FifteenPuzzle game = new FifteenPuzzle("../../board2.txt");
+			FifteenPuzzle game = new FifteenPuzzle("board2.txt");
 			//  1  2  3  4
 			//  5  6  8 11 
 			//  9 10    12
@@ -170,7 +170,7 @@ public class TestFifteenPuzzle
 
 	public static void testIsSolved3() {
 		try {
-			FifteenPuzzle game = new FifteenPuzzle("../../board3.txt");
+			FifteenPuzzle game = new FifteenPuzzle("board3.txt");
 			// 1  2  3  4
 			// 5  6  7  8 
 			// 9 10 11
@@ -192,10 +192,10 @@ public class TestFifteenPuzzle
 		testReadFromFile1();
 		testReadFromFile2();
 		testReadFromFile3();
-//		testMoves1();
-//		testMoves2();
-//		testIsSolved1();
-//		testIsSolved2();
-//		testIsSolved3();
+		testMoves1();
+		testMoves2();
+		testIsSolved1();
+		testIsSolved2();
+		testIsSolved3();
 	}
 }
