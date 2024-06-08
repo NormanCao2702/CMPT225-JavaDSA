@@ -8,7 +8,19 @@ public class MyQueueOperations {
 	 */
 	public static <T> int size(Queue<T> q) {
 		// TODO implement me
-		return -1;
+		int count = 0;
+		Queue<T> temp = new QueueArrayBased<>();
+
+		while(!q.isEmpty()){
+			T item = q.dequeue();
+			temp.enqueue(item);
+			count++;
+		}
+
+		while(!temp.isEmpty()){
+			q.enqueue(temp.dequeue());
+		}
+		return count;
 	}
 
 	/**

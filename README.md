@@ -3,9 +3,9 @@ The assignments in this repo are designed by **Igor Shinkar** for **CMPT 225** i
 
 There are **4 assignments** in total, each assignment will associated with a seperate ReadMe file for more detail.
 
-* [x] Assignment 1: Iterators and Fifteen Puzzle
+* [x] Assignment 1: **Iterators** and **Fifteen Puzzle**
 
-- [ ] Assignment 2:
+- [ ] Assignment 2: **MyLinkedList** and **MyQueueOperations**
 
 - [ ] Assignment 3:
 
