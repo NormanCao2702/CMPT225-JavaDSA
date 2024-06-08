@@ -46,7 +46,13 @@ public class TestMyLinkedList {
 		l.addLeft("X");
 		l.addRight("Q");
 		l.addRight("Q");
-
+//		l.printLinknedList();
+//		System.out.println(l.removeRight().equals("Q"));
+//		l.printLinknedList();
+//		System.out.println(l.removeRight().equals("Q"));
+//		l.printLinknedList();
+//		System.out.println(l.removeRight().equals("Q"));
+//		l.printLinknedList();
 		if (l.removeRight().equals("Q")
 				&& l.removeRight().equals("Q")
 				&& l.removeRight().equals("Q")
@@ -112,7 +118,7 @@ public class TestMyLinkedList {
 		l.addLeft("B");
 		l.addLeft("A");
 		l.addRight("Z");
-
+		l.printLinknedList();
 		if (l.getMiddle().equals("C"))
 			System.out.println("test6 OK");
 		else

@@ -19,6 +19,11 @@ public class MyLinkedList<T> {
 		Node next;
 		Node prev;
 
+		Node(){
+			this.data = null;
+			this.next = null;
+			this.prev = null;
+		}
 		Node(T item){
 			this.data = item;
 			this.next = null;
@@ -58,8 +63,8 @@ public class MyLinkedList<T> {
 				head.prev = newNode;
 				head = newNode;
 			}
-//			if(size % 2 == 0) middle = isReverse ? middle.prev:middle.next;
 		}
+		if(size % 2 == 0 && size !=0 ) middle = isReverse ? middle.next:middle.prev;
 		size++;
 	}
 
@@ -80,8 +85,8 @@ public class MyLinkedList<T> {
 				newNode.prev = tail;
 				tail = newNode;
 			}
-//			if(size % 2 != 0) middle = isReverse ? middle.prev:middle.next;
 		}
+		if(size % 2 !=0) middle = isReverse ? middle.prev:middle.next;
 		size++;
 	}
 
@@ -90,7 +95,24 @@ public class MyLinkedList<T> {
 	 * If the list is empty, throws NoSuchElementException.
 	 */
 	public T removeLeft() {
-		return null;
+		if(size == 0) throw new NoSuchElementException();
+		Node toRemove = new Node();
+		if(isReverse) {
+			toRemove = tail;
+			tail = tail.prev;
+			if(tail != null) tail.next = null;
+		}else{
+			toRemove = head;
+			head = head.next;
+			if(head!=null) head.prev = null; //to avoid NullPointerException
+		}
+		if(size == 1){
+			head = tail = middle = null;
+		} else{
+			if (size % 2 != 0) middle = isReverse ? middle.prev: middle.next;
+		}
+		size--;
+		return toRemove.data;
 	}
 
 	/**
@@ -98,21 +120,24 @@ public class MyLinkedList<T> {
 	 * If the list is empty, throws NoSuchElementException.
 	 */
 	public T removeRight() {
-		if(size == 0) throw new NoSuchElementException("Size is 0");
-		Node returnedData = null;
-		if(!isReverse) {
-			returnedData = tail;
+		if(size == 0) throw new NoSuchElementException();
+		Node toRemove = new Node();
+		if(isReverse) {
+			toRemove = head;
+			head = head.next;
+			if(head!=null) head.prev = null; //to avoid NullPointerException
+		}else{
+			toRemove = tail;
 			tail = tail.prev;
 			if(tail != null) tail.next = null;
 		}
-		else{
-			returnedData = head;
-			head = head.next;
-
+		if(size == 1){
+			head = tail = middle = null;
+		} else{
+			if (size % 2 == 0) middle = isReverse ? middle.prev : middle.next;
 		}
-
-
-		return returnedData.data;
+		size--;
+		return toRemove.data;
 	}
 
 
@@ -120,10 +145,11 @@ public class MyLinkedList<T> {
 	 * Reverses the list
 	 */
 	public void reverse() {
-		Node temp = head;
-		head = tail;
-		tail = temp;
-		isReverse = true;
+		isReverse = !isReverse;
+		if(size % 2 == 0){
+			if(!isReverse) middle = middle.next;
+			else middle = middle.prev;
+		}
 	}
 
 	/**
@@ -132,6 +158,8 @@ public class MyLinkedList<T> {
 	 */
 	public T getMiddle() {
 		if(size ==0) throw new NoSuchElementException("Size is now 0");
+
+		return this.middle.data;
 	}
 
 	/** 
@@ -148,4 +176,12 @@ public class MyLinkedList<T> {
 		return size==0;
 	}
 
+	public void printLinknedList(){
+		Node current = new Node();
+		current = this.head;
+		while(current != null){
+			System.out.print(current.data + "->");
+			current = current.next;
+		}
+	}
 }
