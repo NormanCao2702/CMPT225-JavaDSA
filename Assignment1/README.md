@@ -46,3 +46,10 @@ In order to run all the test files at once, you should utilize the sh file named
  ```
 2. Run the script:
 `./run_all.sh`
+
+## Test case 1st attempt:
+Cannot pass test 29:
+```
+Running test 29:
+Test29 ERROR
+```
