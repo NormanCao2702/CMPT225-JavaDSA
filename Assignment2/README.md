@@ -5,7 +5,7 @@ There are 2 parts: **MyLinkedList** and **MyQueueOperations**.
 Implement all methods in class MyLinkedList including:
 * [x] public MyLinkedList(): Creates an empty linked list
 * [x] public void addLeft(T item): Adds the new item to the left of the list.
-* [x]public void addRight(T item): Adds the new item to the right of the list.
+* [x] public void addRight(T item): Adds the new item to the right of the list.
 * [x] public T removeLeft(): Removes the leftmost item from the list and returns it. If the list is empty, throws NoSuchElementException.
 * [x] public T removeRight(): Removes the rightmost item from the list and returns it. If the list is empty, throws NoSuchElementException.
 * [x] public void reverse(): Reverses the list. For example, if the list was 1-2-3-1-4, after running the method, it becomes 4-1-3-2-1.
@@ -17,3 +17,5 @@ Implement all methods in class MyLinkedList including:
   - If the list is empty, throws NoSuchElementException.
 * [x] public int size(): Returns the size of the list
 * [x] public boolean isEmpty(): Checks if the list is empty.
+
+## 2. MyQueueOperations:
