@@ -41,7 +41,8 @@ public class FifteenPuzzle {
 		try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 			for(int row = 0; row < SIZE; row++){
 				String line = br.readLine();
-				if(line.length() != 11) throw new BadBoardException("Incorrect Line length in row"+ row);
+				if(line == null) throw new BadBoardException("Incorrect number of rows");
+				if(line.length() != 11) throw new BadBoardException("Incorrect Line length in a row"+ row);
 				for (int col = 0; col < SIZE; col++){
 					String part = line.substring(col * 3, col*3+2).trim();
 					if(part.isEmpty()) board[row][col] = 0;
