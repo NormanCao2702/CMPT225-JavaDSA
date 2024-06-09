@@ -2,6 +2,8 @@ package assignment2;
 
 import basicdatastructures.queue.*;
 
+import java.util.Stack;
+
 public class MyQueueOperations {
 	/**
 	 * Returns the number of elements in q.
@@ -30,7 +32,20 @@ public class MyQueueOperations {
 	 */
 	public static <T> Queue<T> clone(Queue<T> orig) {
 		// TODO implement me
-		return null;
+		Queue<T> copy = new QueueArrayBased<>(); // Or QueueLinkedListBased
+		Queue<T> temp = new QueueArrayBased<>(); // Temporary queue
+
+		while (!orig.isEmpty()) {
+			T item = orig.dequeue();
+			copy.enqueue(item);
+			temp.enqueue(item);
+		}
+
+		while (!temp.isEmpty()) {
+			orig.enqueue(temp.dequeue());
+		}
+
+		return copy;
 	}
 
 	/**
@@ -38,6 +53,15 @@ public class MyQueueOperations {
 	 */
 	public static <T> void reverse(Queue<T> q) {
 		// TODO implement me
+		Stack<T> stack = new Stack<>();
+
+		while (!q.isEmpty()) {
+			stack.push(q.dequeue());
+		}
+
+		while (!stack.isEmpty()) {
+			q.enqueue(stack.pop());
+		}
 	}
 
 	/**
@@ -46,6 +70,32 @@ public class MyQueueOperations {
 	 */
 	public static <T> boolean areEqual(Queue<T> q1, Queue<T> q2) {
 		// TODO implement me
-		return false;
+		if (size(q1) != size(q2)) {
+			return false;
+		}
+
+		boolean equal = true;
+		Queue<T> temp1 = new QueueArrayBased<>(); // Temporary queue
+		Queue<T> temp2 = new QueueArrayBased<>(); // Temporary queue
+
+		while (!q1.isEmpty() && !q2.isEmpty()) {
+			T item1 = q1.dequeue();
+			T item2 = q2.dequeue();
+			temp1.enqueue(item1);
+			temp2.enqueue(item2);
+			if (item1 != item2) {
+				equal = false;
+			}
+		}
+
+		while (!temp1.isEmpty()) {
+			q1.enqueue(temp1.dequeue());
+		}
+
+		while (!temp2.isEmpty()) {
+			q2.enqueue(temp2.dequeue());
+		}
+
+		return equal;
 	}
 }
