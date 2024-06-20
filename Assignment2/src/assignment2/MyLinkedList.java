@@ -134,7 +134,7 @@ public class MyLinkedList<T> {
 		if(size == 1){
 			head = tail = middle = null;
 		} else{
-			if (size % 2 == 0) middle = isReverse ? middle.prev : middle.next;
+			if (size % 2 == 0) middle = isReverse ? middle.next: middle.prev;
 		}
 		size--;
 		return toRemove.data;
@@ -176,12 +176,18 @@ public class MyLinkedList<T> {
 		return size==0;
 	}
 
-	public void printLinknedList(){
+	public void printLinkedList(){
 		Node current = new Node();
 		current = this.head;
 		while(current != null){
 			System.out.print(current.data + "->");
 			current = current.next;
 		}
+		System.out.println("");
+	}
+
+	public void printMiddle(){
+		Node middle = this.middle;
+		System.out.println(middle.data);
 	}
 }

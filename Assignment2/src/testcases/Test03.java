@@ -15,6 +15,20 @@ public class Test03 {
 		l.addRight("Q");
 		l.addRight("Q");
 		// X-A-A-Q-Q-Q
+//		l.printLinkedList();
+//		l.printMiddle();
+//		l.removeRight();
+//		l.printLinkedList();
+//		l.printMiddle();
+//		l.removeRight();
+//		l.printLinkedList();
+//		l.printMiddle();
+//		l.removeRight();
+//		l.printLinkedList();
+//		l.printMiddle();
+//		l.removeLeft();
+//		l.printLinkedList();
+
 
 		return (l.removeRight().equals("Q")
 				&& l.removeRight().equals("Q")
@@ -27,11 +41,13 @@ public class Test03 {
 				&& l.removeLeft().equals("A")
 				&& l.isEmpty()
 				&& l.size()==0);
+//		return false;
 	}
 
 	public static void main(String[] args) {
 		String className = MethodHandles.lookup().lookupClass().getSimpleName();
 
+//		test();
 		try {
 			if (test())
 				System.out.println(className + " ok");

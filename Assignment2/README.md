@@ -21,8 +21,25 @@ Implement all methods in class MyLinkedList including:
 ## 2. MyQueueOperations:
 Implement all methods in class **MyQueueOperations**, these methods is to keep track of information of given q of both concrete implementations **QueueArrayBased** and **QueueLinkedListBased** given by Professor, including:
 * [x] public static <T> int size(Queue<T> q): Returns the number of elements in q.
-* [] public static <T> Queue<T> clone(Queue<T> orig): Returns a copy of orig. The items are copied from orig to the new queue using = operator. For the concrete type of the returned object, you may use either QueueArrayBased or QueueLinkedListBased. That’s up to you.
-* [] public static <T> void reverse(Queue<T> q): Reverses the order of the elements in q.
-* [] public static <T> boolean areEqual(Queue<T> q1, Queue<T> q2): Checks if the two queues have the same items in the same order.  The items in the queues are to be compared using == operator.
+* [x] public static <T> Queue<T> clone(Queue<T> orig): Returns a copy of orig. The items are copied from orig to the new queue using = operator. For the concrete type of the returned object, you may use either QueueArrayBased or QueueLinkedListBased. That’s up to you.
+* [x] public static <T> void reverse(Queue<T> q): Reverses the order of the elements in q.
+* [x] public static <T> boolean areEqual(Queue<T> q1, Queue<T> q2): Checks if the two queues have the same items in the same order.  The items in the queues are to be compared using == operator.
 
-After the methods return, the input queues must be in the same state as in the beginning
+After the methods return, the input queues must be in the same state as in the beginning.
+
+## Test Cases 1st Attempts:
+Test 03, 11, 13, 14, 15, 16, 17 has exception output.
+```
+Running test 03:
+Test03 EXCEPTION
+```
+**Reason:**
+* My implementation for Removing Right in MyLinkedList has error in modifying middle node, which when the size is even and I remove right and the linked list is not reversed, I need to move the middle node to the left instead of moving it forward
+* To be more specific, line 137 in MyLinkedList.java, the old looks like this:
+```
+if (size % 2 == 0) middle = isReverse ? middle.prev:middle.next ;
+```
+* The correct one:
+```
+if (size % 2 == 0) middle = isReverse ? middle.next: middle.prev;
+```

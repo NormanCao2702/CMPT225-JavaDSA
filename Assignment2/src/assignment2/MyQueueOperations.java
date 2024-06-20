@@ -14,14 +14,14 @@ public class MyQueueOperations {
 		Queue<T> temp = new QueueArrayBased<>();
 
 		while(!q.isEmpty()){
-			T item = q.dequeue();
-			temp.enqueue(item);
+			temp.enqueue(q.dequeue());
 			count++;
 		}
 
 		while(!temp.isEmpty()){
 			q.enqueue(temp.dequeue());
 		}
+
 		return count;
 	}
 
@@ -32,8 +32,8 @@ public class MyQueueOperations {
 	 */
 	public static <T> Queue<T> clone(Queue<T> orig) {
 		// TODO implement me
-		Queue<T> copy = new QueueArrayBased<>(); // Or QueueLinkedListBased
-		Queue<T> temp = new QueueArrayBased<>(); // Temporary queue
+		Queue<T> copy = new QueueLinkedListBased<>(); // Or QueueLinkedListBased
+		Queue<T> temp = new QueueLinkedListBased<>(); // Temporary queue
 
 		while (!orig.isEmpty()) {
 			T item = orig.dequeue();
@@ -75,12 +75,12 @@ public class MyQueueOperations {
 		}
 
 		boolean equal = true;
-		Queue<T> temp1 = new QueueArrayBased<>(); // Temporary queue
-		Queue<T> temp2 = new QueueArrayBased<>(); // Temporary queue
-
+		Queue<T> temp1 = new QueueLinkedListBased<>(); // Temporary queue
+		Queue<T> temp2 = new QueueLinkedListBased<>(); // Temporary queue
+		T item1, item2;
 		while (!q1.isEmpty() && !q2.isEmpty()) {
-			T item1 = q1.dequeue();
-			T item2 = q2.dequeue();
+			item1 = q1.dequeue();
+			item2 = q2.dequeue();
 			temp1.enqueue(item1);
 			temp2.enqueue(item2);
 			if (item1 != item2) {
@@ -88,11 +88,8 @@ public class MyQueueOperations {
 			}
 		}
 
-		while (!temp1.isEmpty()) {
+		while(!temp1.isEmpty() && !temp2.isEmpty()){
 			q1.enqueue(temp1.dequeue());
-		}
-
-		while (!temp2.isEmpty()) {
 			q2.enqueue(temp2.dequeue());
 		}
 

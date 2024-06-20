@@ -118,7 +118,7 @@ public class TestMyLinkedList {
 		l.addLeft("B");
 		l.addLeft("A");
 		l.addRight("Z");
-		l.printLinknedList();
+		l.printLinkedList();
 		if (l.getMiddle().equals("C"))
 			System.out.println("test6 OK");
 		else
